@@ -1,9 +1,9 @@
 #pragma once
 
-#include "bx/engine/modules/graphics.hpp"
+#include "bx/platform/graphics.hpp"
 
-#include "bx/engine/containers/string.hpp"
-#include "bx/engine/containers/hash_map.hpp"
+#include <bx/core/containers/string.hpp>
+#include <bx/core/containers/hash_map.hpp>
 
 #include <glad/glad.h>
 
