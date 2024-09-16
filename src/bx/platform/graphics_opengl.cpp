@@ -1,12 +1,10 @@
-#include "bx/engine/modules/graphics/backend/graphics_opengl.hpp"
+#include "bx/platform/graphics_opengl.hpp"
 
-#include "bx/engine/core/file.hpp"
-#include "bx/engine/core/macros.hpp"
-#include "bx/engine/core/profiler.hpp"
-#include "bx/engine/modules/window.hpp"
+#include "bx/platform/file.hpp"
+#include "bx/platform/window.hpp"
 
-// TODO: Temp should be replaced by Window.hpp completely
-#include <GLFW/glfw3.h>
+#include <bx/core/macros.hpp>
+#include <bx/core/profiler.hpp>
 
 constexpr float MAX_LOAD_FACTOR = 0.75f;
 
@@ -289,7 +287,7 @@ bool Graphics::Initialize()
 #ifdef BX_WINDOW_GLFW_BACKEND
 
 #ifdef BX_GRAPHICS_OPENGL_BACKEND
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    if (!gladLoadGLLoader((GLADloadproc)Window::GetProcAddress))
     {
         BX_LOGE("Failed to initialize GLAD GL!");
         return false;
@@ -297,7 +295,7 @@ bool Graphics::Initialize()
 #endif
 
 #ifdef BX_GRAPHICS_OPENGLES_BACKEND
-    if (!gladLoadGLES2Loader((GLADloadproc)glfwGetProcAddress))
+    if (!gladLoadGLES2Loader((GLADloadproc)Window::GetProcAddress))
     {
         ENGINE_LOGE("Failed to initialize GLAD GLES!");
         return false;
