@@ -14,6 +14,8 @@ bool ImGuiImpl::Initialize_Graphics()
         BX_LOGE("Failed to initialize ImGui OpenGL backend!");
         return false;
     }
+
+    return true;
 }
 
 void ImGuiImpl::Shutdown_Graphics()
